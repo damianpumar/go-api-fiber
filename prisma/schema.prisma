@@ -1,0 +1,14 @@
+datasource db {
+  provider = "mongodb"
+  url      = "mongodb+srv://damian:4L9xCHjSWmKu8i9L@cluster0.dlzh4yr.mongodb.net/Starterkit?retryWrites=true&w=majority"
+}
+
+generator db {
+  provider = "go run github.com/steebchen/prisma-client-go"
+}
+
+model User {
+  id    String   @id @default(auto()) @map("_id") @db.ObjectId
+  email String  @unique
+  name  String?
+}
